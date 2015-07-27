@@ -176,11 +176,14 @@ class Client
         if (isset($responseData['start'])) {
             $response->setStartIndex($responseData['start']);
         }
-        if (isset($responseData['title'])) {
-            $response->setTitle($responseData['title']);
-        }
+
         if (isset($responseData['items'])) {
             $response->setProducts($responseData['items']);
+        }
+
+        if(isset($responseData['widgetdetails'])) {
+            $response->setWidgetDetails($responseData['widgetdetails']);
+            $response->setTitle($responseData['widgetdetails']['title']);
         }
 
         return $response;
