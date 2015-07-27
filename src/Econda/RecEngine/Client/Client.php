@@ -106,7 +106,7 @@ class Client
     }
 
     /**
-     * Get request or null in not initialized
+     * Get request or null if not initialized
      *
      * @return RequestModel
      */
