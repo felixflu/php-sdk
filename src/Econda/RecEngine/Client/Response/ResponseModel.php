@@ -3,9 +3,9 @@
  * econda recommendations client library
  *
  * @copyright Copyright econda GmbH
- * @link http://www.econda.de
- * @package Econda/RecEngine
- * @license MIT License
+ * @link      http://www.econda.de
+ * @package   Econda/RecEngine
+ * @license   MIT License
  */
 namespace Econda\RecEngine\Client\Response;
 
@@ -14,7 +14,8 @@ use InvalidArgumentException;
 
 class ResponseModel implements ModelInterface
 {
-	protected $title;
+
+    protected $title;
 
     protected $products = array();
 
@@ -24,25 +25,25 @@ class ResponseModel implements ModelInterface
 
     protected $widgetDetails = array();
 
-    public function __construct($data=null)
+    public function __construct($data = null)
     {
-        if($data) {
+        if ($data) {
             $this->initPropertiesFromArray($data);
         }
     }
-    
+
     protected function initPropertiesFromArray($data)
     {
-    	if(!is_array($data)) {
-    		throw new InvalidArgumentException("Constructor expects an array of properties with their values.");
-    	}
-    	foreach($data as $key => $value) {
-    		$setterName = 'set' . ucfirst($key);
-    		if(!method_exists($this, $setterName)) {
-    			throw new InvalidArgumentException("No setter found for property with name: " . $key);
-    		}
-    		$this->$setterName($value);
-    	}
+        if (!is_array($data)) {
+            throw new InvalidArgumentException("Constructor expects an array of properties with their values.");
+        }
+        foreach ($data as $key => $value) {
+            $setterName = 'set' . ucfirst($key);
+            if (!method_exists($this, $setterName)) {
+                throw new InvalidArgumentException("No setter found for property with name: " . $key);
+            }
+            $this->$setterName($value);
+        }
     }
 
     /**
@@ -70,6 +71,7 @@ class ResponseModel implements ModelInterface
     public function setTitle($title)
     {
         $this->title = $title;
+
         return $this;
     }
 
@@ -81,6 +83,7 @@ class ResponseModel implements ModelInterface
     public function setProducts($products)
     {
         $this->products = $products;
+
         return $this;
     }
 
@@ -91,7 +94,8 @@ class ResponseModel implements ModelInterface
 
     public function setDisableIfEmpty($disable)
     {
-        $this->disableIfEmpty = (bool) $disable;
+        $this->disableIfEmpty = (bool)$disable;
+
         return $this;
     }
 
@@ -103,6 +107,7 @@ class ResponseModel implements ModelInterface
     public function setStartIndex($index)
     {
         $this->startIndex = $index;
+
         return $this;
     }
 
@@ -110,5 +115,4 @@ class ResponseModel implements ModelInterface
     {
         return $this->startIndex;
     }
-
 }

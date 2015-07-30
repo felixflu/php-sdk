@@ -181,7 +181,7 @@ class Client
             $response->setProducts($responseData['items']);
         }
 
-        if(isset($responseData['widgetdetails'])) {
+        if (isset($responseData['widgetdetails'])) {
             $response->setWidgetDetails($responseData['widgetdetails']);
             $response->setTitle($responseData['widgetdetails']['title']);
         }
